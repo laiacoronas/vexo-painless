@@ -194,7 +194,8 @@ def live_voice(path, max_age_seconds=18, now=None):
     idx = safe_float(data.get("voice_deviation_index"))
     if idx is not None and not 0 <= idx <= 100:
         idx = None
-    return {"level": level, "index": idx, "features": data.get("features", {})}, "ready"
+    return {"level": level, "index": idx, "score": safe_float(data.get("score")),
+            "transcript": str(data.get("transcript", "")), "features": data.get("features", {})}, "ready"
 
 
 def read_demo_events(file_path=DEMO_HISTORY_FILE, as_of=None):

@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Vexo · Conversation</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#edf0f5;color:#25394a;font:16px system-ui,sans-serif}main{max-width:680px;margin:32px auto;padding:24px;background:white;border-radius:20px}header{display:flex;align-items:center;justify-content:space-between}h1{font-size:24px;margin:0}p{line-height:1.5}button{background:#35658b;color:white;border:0;border-radius:10px;padding:12px 18px;font:inherit;cursor:pointer}button:disabled{opacity:.5;cursor:default}label{display:flex;gap:10px;align-items:center;margin:20px 0}#status,.role,.empty,#modeDescription{color:#6e7785}.role{font-size:13px;margin-top:20px}.line p{margin:5px 0}#scoreCard{background:#edf0f5;border-radius:12px;padding:16px;margin:20px 0}#score{font-size:32px}.moderate{color:#a1651e}.high,#error{color:#a53318}details{margin-top:24px}input[type=range]{width:180px}#error{margin-top:16px}#conversation{margin-top:24px}#scale{font-size:13px;color:#6e7785}
+</style></head><body><main>
+<header><h1>Conversation</h1><span id="status" role="status">Ready</span></header>
+<label><input id="prediction" type="checkbox">Pain prediction</label><p id="modeDescription">Normal conversation</p>
+<section id="scoreCard" hidden><div>Predicted pain</div><span id="score">—</span> <span id="scale">/ 10</span> <span id="level"></span><p id="rangeWarning" hidden>Estimate outside the calibrated range.</p></section>
+<button id="start">Start conversation</button><p id="error" role="alert" hidden></p>
+<div id="conversation" aria-live="polite"><p class="empty" id="empty">Speak or play your recording into the microphone.</p></div>
+<details><summary>Settings</summary><label>Pause <input id="pause" type="range" min="200" max="3000" step="100" value="300"><span id="pauseValue">0.3 s</span></label></details>
+</main><script type="module" src="/static/app.js"></script></body></html>

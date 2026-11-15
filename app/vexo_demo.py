@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import html
 import io
+import os
 import math
 from collections import Counter
 from datetime import datetime, timedelta, timezone
@@ -178,22 +179,27 @@ def movement_card(payload, state, source):
 
 
 def voice_card():
+    voice_url = e(os.environ.get("VEXO_VOICE_URL", "http://localhost:8766"))
+    conversation_link = f'<a href="{voice_url}" target="_blank" rel="noopener" style="display:inline-block;margin-top:14px;color:#35658b">Open conversation</a>'
     voice_path = choose_file(VOICE_CANDIDATES, "VEXO_VOICE_JSON")
     voice, status = live_voice(voice_path)
     if status != "ready":
         card(f'''
         <div class="v-row"><div class="v-card-title">Voice</div>{pill('Model pending','grey')}</div>
-        <div style="margin-top:12px" class="v-muted">Reserved for your teammate's audio model. No voice prediction is shown until a fresh <code>voice_latest.json</code> is available.</div>
+        <div style="margin-top:12px" class="v-muted">Start a conversation to connect the voice model.</div>
         <div style="height:14px;border-radius:10px;background:#eef0f4;margin:20px 0 4px"></div>
-        <div class="v-tiny">Acoustic baseline · pitch, loudness, voice changes</div>
+        <div class="v-tiny">Pain prediction · optional</div>
+        {conversation_link}
         ''')
         return
     label = voice["level"].capitalize()
     tone = {"normal":"blue", "moderate":"orange", "high":"red"}[voice["level"]]
     card(f'''
         <div class="v-row"><div class="v-card-title">Voice</div>{pill(label,tone)}</div>
-        <div class="v-muted" style="margin-top:10px">Connected to teammate's model output. Signal level is not a medical measurement of pain.</div>
+        <div class="v-muted" style="margin-top:10px">Voice-based pain estimate</div>
+        {('<div class="v-stat">' + e(f"{voice['score']:.1f}") + '<span class="v-tiny"> / 10</span></div>') if voice.get('score') is not None else ''}
         {meter(voice['index'],label,kind='voice') if voice['index'] is not None else ''}
+        {conversation_link}
     ''')
 
 
@@ -435,7 +441,7 @@ def moment_panel():
         checkin_panel(payload,state)
     else:
         st.info("No fresh sensor data. Switch to Preview to explore this screen, or reconnect Bluetooth.")
-    st.caption("There is no implemented bracelet buzz, speech transcription, or automatic pain diagnosis in this version.")
+    st.caption("Speech transcription is available through the Voice card.")
 
 
 def make_pdf_report(events, checkins):
@@ -514,7 +520,7 @@ with st.sidebar:
         st.caption("Connect in Chrome or Edge. Close the original Vexo dashboard first; one Bluetooth connection at a time.")
         st.caption("Live sensor trace refreshes about once per second; baseline assessment updates every five seconds.")
     st.divider()
-    st.caption("Voice insights will appear when the audio model is connected.")
+    st.caption("Open the Voice card to start a conversation.")
     st.caption("All check-ins and flags are stored locally in vexo-pain-monitor/data/.")
 
 navigation=["Now","Timeline","Patterns","Experiment","Moment","Share"]

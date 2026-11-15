@@ -87,13 +87,12 @@ The monitor calculates movement features in rolling windows and compares them ag
 
 The resulting **Movement Deviation Index** (0–100) summarizes how different the current window is from the learned reference. It is a *heuristic measure of movement change*, **not** a pain score or a probability of pain. A short movement spike should not by itself trigger a sustained high alert.
 
-### 2. Voice module — designed for integration
+### 2. Voice module — speech routing
 
-The planned voice model processes speech-derived acoustic characteristics and produces a separate assessment. The team is developing it independently so that it can be connected to the dashboard without changing the movement pipeline.
+The Voice card opens the local speech service: Deepgram transcription → Gemini replies → spoken audio. An optional pain-model hook analyzes speech in the background and publishes results through the existing `voice_latest.json` contract.
 
-Our proposed research direction uses labeled speech/pain datasets (for example, TAME Pain) to explore relationships between acoustic patterns and reported pain. Any trained model needs participant-level evaluation, calibration, and checks for generalization before its output can be interpreted reliably.
+See [speech routing setup](vexo_voice_module/README.md) for keys, startup and the model hook.
 
-**Current behavior:** if no valid recent model output exists, the dashboard shows **Model pending** — it does not invent a voice prediction.
 
 ### 3. User check-ins — the reference for actual pain
 
