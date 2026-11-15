@@ -1,0 +1,22 @@
+{
+  "device": "mps",
+  "torch": "2.9.0",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "machine": "arm64",
+  "packages": {
+    "torch": "2.9.0",
+    "torchvision": "0.24.0",
+    "librosa": "0.11.0",
+    "numpy": "2.3.4",
+    "scipy": "1.16.3",
+    "soundfile": "0.14.0"
+  },
+  "encoder_parameters": 21278400,
+  "extraction_batch_size": 16,
+  "extraction_seconds": 4.997130584000843,
+  "clips": 1847,
+  "initial_weights_sha256": "1ab52922ea0d60d0c19f28d207a6137eb4efc85f95416e8a646f1ce6990e8079",
+  "weights_url": "https://download.pytorch.org/models/resnet34-b627a593.pth",
+  "hardware": "Apple M4 Pro",
+  "unified_memory_bytes": 25769803776
+}

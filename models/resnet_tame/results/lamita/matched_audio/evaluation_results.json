@@ -1,0 +1,80 @@
+{
+  "calibration_count": 9,
+  "evaluation_count": 6,
+  "selected": {
+    "weight_decay": 1.0,
+    "epoch": 400,
+    "mae": 2.346543312072754
+  },
+  "evaluation_mae": 1.0106927156448364,
+  "evaluation_rmse": 1.168745994567871,
+  "recordings": [
+    {
+      "file": "recordings/lamita_pain_04_take_03.wav",
+      "pain_level": 4,
+      "take": 3,
+      "phrase": "vexohacks is cool",
+      "source_start_seconds": 16.0,
+      "source_end_seconds": 17.8,
+      "duration_seconds": 1.8,
+      "prediction": 2.4747819900512695,
+      "absolute_error": 1.5252180099487305
+    },
+    {
+      "file": "recordings/lamita_pain_04_take_04.wav",
+      "pain_level": 4,
+      "take": 4,
+      "phrase": "vexohacks is cool",
+      "source_start_seconds": 18.5,
+      "source_end_seconds": 20.25,
+      "duration_seconds": 1.75,
+      "prediction": 4.178987503051758,
+      "absolute_error": 0.1789875030517578
+    },
+    {
+      "file": "recordings/lamita_pain_06_take_03.wav",
+      "pain_level": 6,
+      "take": 3,
+      "phrase": "vexohacks is cool",
+      "source_start_seconds": 28.93,
+      "source_end_seconds": 30.55,
+      "duration_seconds": 1.62,
+      "prediction": 6.831131935119629,
+      "absolute_error": 0.8311319351196289
+    },
+    {
+      "file": "recordings/lamita_pain_06_take_04.wav",
+      "pain_level": 6,
+      "take": 4,
+      "phrase": "vexohacks is cool",
+      "source_start_seconds": 30.85,
+      "source_end_seconds": 32.6,
+      "duration_seconds": 1.75,
+      "prediction": 4.830392360687256,
+      "absolute_error": 1.1696076393127441
+    },
+    {
+      "file": "recordings/lamita_pain_10_take_03.wav",
+      "pain_level": 10,
+      "take": 3,
+      "phrase": "vexohacks is cool",
+      "source_start_seconds": 40.58,
+      "source_end_seconds": 42.3,
+      "duration_seconds": 1.72,
+      "prediction": 9.526006698608398,
+      "absolute_error": 0.47399330139160156
+    },
+    {
+      "file": "recordings/lamita_pain_10_take_04.wav",
+      "pain_level": 10,
+      "take": 4,
+      "phrase": "vexohacks is cool",
+      "source_start_seconds": 42.45,
+      "source_end_seconds": 44.0,
+      "duration_seconds": 1.55,
+      "prediction": 8.114782333374023,
+      "absolute_error": 1.8852176666259766
+    }
+  ],
+  "checkpoint_sha256": "34374f6cb26c76696f8b879bdbfce527a289fb7451325c862625c751e7844cd4"
+}

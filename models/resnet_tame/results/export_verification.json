@@ -1,0 +1,42 @@
+{
+  "encoder_sha256": "f645f77cc1bdba2d5d93e02c2fb06c39f9348b7bff545c272c3b3daa25a56fd1",
+  "source_checkpoints_byte_identical": true,
+  "heads": {
+    "milan": {
+      "recordings": 10,
+      "max_absolute_prediction_difference": 0.0,
+      "saved_evaluation_mae": 0.9910575151443481,
+      "references": 3,
+      "reference_query_self_pair_mask_verified_by_sha256": true,
+      "reference_query_prediction": 2.9904189109802246,
+      "reference_self_pair_manual_replay_difference": 0.0
+    },
+    "milan-audio": {
+      "recordings": 10,
+      "max_absolute_prediction_difference": 4.76837158203125e-07,
+      "saved_evaluation_mae": 1.2956148386001587,
+      "references": 0
+    },
+    "lamita": {
+      "recordings": 6,
+      "max_absolute_prediction_difference": 0.0,
+      "saved_evaluation_mae": 0.9459161162376404,
+      "references": 3,
+      "reference_query_self_pair_mask_verified_by_sha256": true,
+      "reference_query_prediction": 3.0787131786346436,
+      "reference_self_pair_manual_replay_difference": 0.0
+    },
+    "lamita-audio": {
+      "recordings": 6,
+      "max_absolute_prediction_difference": 1.9073486328125e-06,
+      "saved_evaluation_mae": 1.0106927156448364,
+      "references": 0
+    }
+  },
+  "general_lamita": {
+    "recordings": 15,
+    "max_absolute_prediction_difference": 0.0
+  },
+  "original_training_sources_byte_identical": true,
+  "resnet_unit_tests_passed": 5
+}

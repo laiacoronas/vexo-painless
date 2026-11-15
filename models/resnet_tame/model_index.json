@@ -1,0 +1,152 @@
+{
+  "encoder": {
+    "file": "base/pain_model.pt",
+    "sha256": "f645f77cc1bdba2d5d93e02c2fb06c39f9348b7bff545c272c3b3daa25a56fd1",
+    "architecture": "Single-channel ResNet-34, 512-dimensional pooled embedding",
+    "selected_variant": "finetuned",
+    "source_training": "TAME Pain 1.0.0"
+  },
+  "heads": {
+    "milan-audio": {
+      "file": "heads/milan-audio.pt",
+      "sha256": "2fafe0bee263c6f2b30c7256fc4cefaf77068e17c35efebf51e130608e9d4845",
+      "kind": "audio_mlp",
+      "architecture": [
+        512,
+        16,
+        1
+      ],
+      "epochs": 10,
+      "weight_decay": 1.0,
+      "results": "results/milan/matched_audio/evaluation_results.json",
+      "reference_audio_sha256": {},
+      "original_training_plan_sha256": "a9545ac1f0e3a9afc4487b016b674730a1db84ebe121e0021d627720b103b9b7",
+      "packaged_plan_sha256": "a9545ac1f0e3a9afc4487b016b674730a1db84ebe121e0021d627720b103b9b7"
+    },
+    "milan": {
+      "file": "heads/milan.pt",
+      "sha256": "6b0bd46841d5c9d65f2b82277e94b2d430b353239594427163d35d403e664476",
+      "kind": "reference_mlp",
+      "architecture": [
+        1536,
+        16,
+        1
+      ],
+      "epochs": 6,
+      "weight_decay": 1.0,
+      "results": "results/milan/pain0_reference/evaluation_results.json",
+      "reference_audio_sha256": {
+        "recordings/milan_pain_00_take_01.wav": "f0b299004a29600f48475b3a470b959b35e2da759a47c4aa69be725e9fb82a68",
+        "recordings/milan_pain_00_take_02.wav": "b99996a24a7183eb01945b3a773fa79767d4a4a3994ec06054bff7464ae6695b",
+        "recordings/milan_pain_00_take_03.wav": "d61eddf03f9f8b125611257ee84711576988f42d5f87db43ca9feae27df9020d"
+      },
+      "original_training_plan_sha256": "de27483cfd3e243fca892d46d55f5e7a00e14c6d0ac1abb42d1793c2ed5b9745",
+      "packaged_plan_sha256": "de27483cfd3e243fca892d46d55f5e7a00e14c6d0ac1abb42d1793c2ed5b9745"
+    },
+    "lamita-audio": {
+      "file": "heads/lamita-audio.pt",
+      "sha256": "34374f6cb26c76696f8b879bdbfce527a289fb7451325c862625c751e7844cd4",
+      "kind": "audio_mlp",
+      "architecture": [
+        512,
+        16,
+        1
+      ],
+      "epochs": 400,
+      "weight_decay": 1.0,
+      "results": "results/lamita/matched_audio/evaluation_results.json",
+      "reference_audio_sha256": {},
+      "original_training_plan_sha256": "3981e428cb84bcfab58716bcbfd7c56e66d585283eda5082866db3b682205643",
+      "packaged_plan_sha256": "0f2dd0a9784c6b5c2af21042b05d909cf8b741c883634200b610bdcf55d187d6"
+    },
+    "lamita": {
+      "file": "heads/lamita.pt",
+      "sha256": "4090b7aba309aa05e8d63482c24119adfa0656cac5566b285fb350797bcd231c",
+      "kind": "reference_mlp",
+      "architecture": [
+        1536,
+        16,
+        1
+      ],
+      "epochs": 4,
+      "weight_decay": 1.0,
+      "results": "results/lamita/pain0_reference/evaluation_results.json",
+      "reference_audio_sha256": {
+        "recordings/lamita_pain_00_take_01.wav": "29ffa945da0a136c79fbcd7e82fb4257703aec6579e5021cde5c3389d6ced378",
+        "recordings/lamita_pain_00_take_02.wav": "d631afa8c0c2bcff46fbe4155e4ee03ea2ed8780819b62c6a7c8f2713cb42217",
+        "recordings/lamita_pain_00_take_03.wav": "3092b32d93d1a994cf0c7ecc344bf2846e85edb007c6398d84e80c2ebf61b0c2"
+      },
+      "original_training_plan_sha256": "c69c13d00011e8dc0bc82c0570961c32b37a16da9a14b9e9661e7af2f22ade6b",
+      "packaged_plan_sha256": "552b585d3b173a36386b7641a9a45b88a9a18a79fc10b94142c64607492fd327"
+    }
+  },
+  "people": {
+    "milan": {
+      "plan": "results/milan/pain0_reference/plan.json",
+      "audio_sha256": {
+        "recordings/milan_pain_00_take_01.wav": "f0b299004a29600f48475b3a470b959b35e2da759a47c4aa69be725e9fb82a68",
+        "recordings/milan_pain_00_take_02.wav": "b99996a24a7183eb01945b3a773fa79767d4a4a3994ec06054bff7464ae6695b",
+        "recordings/milan_pain_00_take_03.wav": "d61eddf03f9f8b125611257ee84711576988f42d5f87db43ca9feae27df9020d",
+        "recordings/milan_pain_02_take_01.wav": "cf2f0f7d40dfef81541b818daa716ee0b5c2f818a155c475a3f5cc61349aa9b6",
+        "recordings/milan_pain_02_take_02.wav": "eb4a0352a089f18633becf1fd6796b74d8ec8131e88c5b32d883f7f47edca7d1",
+        "recordings/milan_pain_02_take_03.wav": "ae58e46240ef30cb916cc00fad5dd41948b7e122a93f667bd86b7810520831a2",
+        "recordings/milan_pain_05_take_01.wav": "34c2df3ee914adc06f60cbb4e67aee894dafac292023c0efcbf92e1eff45ebb6",
+        "recordings/milan_pain_05_take_02.wav": "0db03c1f4b83eef787a8c8fa1a2fb55ea02cdbe7a7b757f96fbf9020abbc7fd7",
+        "recordings/milan_pain_05_take_03.wav": "14146cb290a6b7ec5db844d29205e4f0265b7fa72ad70a36098934b84fce0ecb",
+        "recordings/milan_pain_06_take_01.wav": "70648ac3f8192b67b28ec06a47dbea6126b47f45c8e5694fab97e391d9e312c9",
+        "recordings/milan_pain_06_take_02.wav": "791c86a5fbfaee503e5621ab689345536509916257afb46d7868e102a347605c",
+        "recordings/milan_pain_06_take_03.wav": "fe90acdf534e098f3f871c71782d959d1c04322732c3c9c1fac77488cd9d056f",
+        "recordings/milan_pain_07_take_01.wav": "3dd4d4bbc8a5d36e3bff798f9e6cd052293989857ccc0ae377a50faa61934c90",
+        "recordings/milan_pain_07_take_02.wav": "f968598cacdf6cdcf4f23f8e7b8bf0ec46b229a8cc0c66be261f09879bc622ef",
+        "recordings/milan_pain_07_take_03.wav": "4b08c4505125b7545079f5c8dde55a252c9029ea6880e1d5c0b25553c927d66d",
+        "recordings/milan_pain_08_take_01.wav": "94c0835467d24fd5a7871ca201ba9e8cf1719bf1cb2809abf84dd5d1a68197a2",
+        "recordings/milan_pain_08_take_02.wav": "093cfa1641869b5e3dcf413f0bbb84b90fd7afc1e3813a9a7cdc9b4c6ad5b84e",
+        "recordings/milan_pain_08_take_03.wav": "aef00bda25a0294f0cbe08fd79c6099d29115bcd30cf222aad2e7057caadd854",
+        "recordings/milan_pain_08_take_04.wav": "51a68d5f89ae4d7780599be037af8839a7554431407ca9dba3c1774a1edf7218",
+        "recordings/milan_pain_08_take_05.wav": "83aae85b22bbe251ca2eaf34bb28e4256e90822cf7a9335206361256d1e32199",
+        "recordings/milan_pain_08_take_06.wav": "31511eaefdeb88322e42c62029bcf809ee3d4b14acb06a50cd4c93c738714b2c",
+        "recordings/milan_pain_09_take_01.wav": "a0b50bca58b636f50f2cbc27009b8367d9f29e296031402672bc5ccfd98b4425",
+        "recordings/milan_pain_09_take_02.wav": "dd0cb1ddb436dad2f607b6866d0ac645fbebc83fb6d3788b2cc57dcc888bfcc6",
+        "recordings/milan_pain_09_take_03.wav": "1486c04944d94cc31b443ab39e75734d489540641ab35f05b40a496594b7778d",
+        "recordings/milan_pain_10_take_01.wav": "ccd962f549f43dba030508f4b4b25b67f003f0a4e99d66903dd5bcc44c94c191",
+        "recordings/milan_pain_10_take_02.wav": "f67d06a90f5cac5e03f2120218a019de9709518914a15dd8bf493be9a6f6e09c",
+        "recordings/milan_pain_10_take_03.wav": "fc417dcc9cf77a3f2e2c22b89c29ca28a881933581d73b5cd567458ff377ef6a"
+      }
+    },
+    "lamita": {
+      "plan": "results/lamita/pain0_reference/plan.json",
+      "audio_sha256": {
+        "recordings/lamita_pain_00_take_01.wav": "29ffa945da0a136c79fbcd7e82fb4257703aec6579e5021cde5c3389d6ced378",
+        "recordings/lamita_pain_00_take_02.wav": "d631afa8c0c2bcff46fbe4155e4ee03ea2ed8780819b62c6a7c8f2713cb42217",
+        "recordings/lamita_pain_00_take_03.wav": "3092b32d93d1a994cf0c7ecc344bf2846e85edb007c6398d84e80c2ebf61b0c2",
+        "recordings/lamita_pain_04_take_01.wav": "347a1b1d6f94ec16fa38bc776bf9673ae9a7db7ace9d8853660d624ecd7f14ad",
+        "recordings/lamita_pain_04_take_02.wav": "246c8094304b8f5d803468b06b3bd0c033599c1ad09f271fe0805c4c76ec3fd3",
+        "recordings/lamita_pain_04_take_03.wav": "d39440d6411abb9135237e2dc01ca1debe1e7b04ebbb5c6f9a2ebf9529bfe596",
+        "recordings/lamita_pain_04_take_04.wav": "6ec482af469f73a063a88f482bef35f3b44314969e12d3e568de537c07a65c62",
+        "recordings/lamita_pain_06_take_01.wav": "6e786795d855ccb2c9a95cd5ad8dc56b502ba138cbd8b81f001075f89a363c8c",
+        "recordings/lamita_pain_06_take_02.wav": "0f3ea7723072e1d600c321ce1a600d640dc475cee314d55780a5c910932c6fb9",
+        "recordings/lamita_pain_06_take_03.wav": "a6830080d4d67b4b004a6c15f700b3ea84c56d5ae7c553d9dd8c8a2e3115e4bd",
+        "recordings/lamita_pain_06_take_04.wav": "f65e68fa2df756398971f7e00f741d55818b949dc8e2cc4a84491d365362f46a",
+        "recordings/lamita_pain_10_take_01.wav": "89022e7c6e74ededc614200840eea8b5bc6d2602c13c995f47bcaf52c037a806",
+        "recordings/lamita_pain_10_take_02.wav": "4bcf6c3d0b5ec60b7c74ce56c22821eca4123264ad0718de4998f2d61ed291f7",
+        "recordings/lamita_pain_10_take_03.wav": "de3e531c0b38135f8943ce4615427c573f252e3bc1dfee4d49b8b252f26aef53",
+        "recordings/lamita_pain_10_take_04.wav": "87549ccf583a88846dd9697418b0bd82a4dd7cc7c7825c20f9b171d74315a6d2"
+      }
+    }
+  },
+  "source_code_sha256": {
+    "resnet_experiment.py": "77a0b84ec501d3293215cba6cbe4e0efafc724a3fe4f72f8dfc23fb342924bb1",
+    "train.py": "bb8909fad1ad8c6adc5cba1d2f3d8efcc60911144b78d2a61e5efa016e281c3f",
+    "prepare.py": "0ad7b9b50a74457e2833f842922d9d09b6e64b1e206ae95de622aada3ea38466",
+    "train_personal.py": "e745ff3339c0f9701703134a573d30148bb2ada579b58281e164bf8171a429a7",
+    "train_personal_mlp_sweep.py": "a9e941c035d7829c13ffecc1b3b77f7653aecece294496a36eb0a0cfa2c44406",
+    "train_milan_resnet_reference.py": "7f7cada08dc145aaa3e5c99ba6b17c35835e455d4cfd27e408d105742f88e912",
+    "train_lamita_resnet_reference.py": "de42188d3bbe3686fab94b31a32e060e8014f997271172ba3fd30633807d343b",
+    "train_resnet_personal.py": "6a779f631a67bf98b62ff8d0d7ab84d68eef93412c0b7269e5b843aca40f2423",
+    "predict_resnet.py": "d8247779dfd5a582689e548b56ff318d07e3d1f39bb51c83a73b6d42d35c475b",
+    "test_resnet_experiment.py": "846a76e7accac4972e7b4ab2305c8f4ce65f7fb8d9a5da0647fc7925ba9d2332",
+    "test_prepare.py": "14c5cd7bdcf0cab99ee5b958ba86fc5d91a2b7d5c2fc34505c73dfcb16193808",
+    "test_model.py": "319546806ad6895c6d3cd87f8737d24a921399378dc1393a5ad4591a20ce5b5f",
+    "train_personal_alternatives.py": "aaf3d46f648fb6a254b19df5bed852a76219a9f123a2e6deef16c36f22f99891"
+  }
+}

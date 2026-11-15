@@ -1,0 +1,36 @@
+{
+  "original_audio": {
+    "calibration_count": 16,
+    "evaluation_count": 11,
+    "selected": {
+      "weight_decay": 1.0,
+      "epoch": 400,
+      "mae": 2.120637893676758
+    },
+    "evaluation_mae": 1.290071964263916,
+    "evaluation_rmse": 1.54122793674469
+  },
+  "matched_audio": {
+    "calibration_count": 17,
+    "evaluation_count": 10,
+    "selected": {
+      "weight_decay": 1.0,
+      "epoch": 10,
+      "mae": 2.250788450241089
+    },
+    "evaluation_mae": 1.2956148386001587,
+    "evaluation_rmse": 1.617887258529663
+  },
+  "pain0_reference": {
+    "calibration_count": 17,
+    "evaluation_count": 10,
+    "selected": {
+      "weight_decay": 1.0,
+      "epoch": 6,
+      "mae": 1.984570860862732
+    },
+    "evaluation_mae": 0.9910575151443481,
+    "evaluation_rmse": 1.2438724040985107
+  },
+  "matched_reference_mae_reduction": 0.30455732345581055
+}

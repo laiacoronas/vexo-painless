@@ -1,0 +1,15 @@
+{
+  "selected_variant": "finetuned",
+  "variants": {
+    "frozen": {
+      "best_epoch": 9,
+      "validation_mae": 2.12630153005795,
+      "trainable_parameters": 73985
+    },
+    "finetuned": {
+      "best_epoch": 3,
+      "validation_mae": 2.021828854826821,
+      "trainable_parameters": 13188353
+    }
+  }
+}

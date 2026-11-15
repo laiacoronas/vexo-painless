@@ -1,0 +1,7 @@
+file,pain_level,take,phrase,source_start_seconds,source_end_seconds,duration_seconds,prediction,absolute_error
+recordings/lamita_pain_04_take_03.wav,4,3,vexohacks is cool,16.0,17.8,1.8,4.200757026672363,0.20075702667236328
+recordings/lamita_pain_04_take_04.wav,4,4,vexohacks is cool,18.5,20.25,1.75,5.0064873695373535,1.0064873695373535
+recordings/lamita_pain_06_take_03.wav,6,3,vexohacks is cool,28.93,30.55,1.62,7.685325622558594,1.6853256225585938
+recordings/lamita_pain_06_take_04.wav,6,4,vexohacks is cool,30.85,32.6,1.75,6.4617919921875,0.4617919921875
+recordings/lamita_pain_10_take_03.wav,10,3,vexohacks is cool,40.58,42.3,1.72,9.003044128417969,0.9969558715820312
+recordings/lamita_pain_10_take_04.wav,10,4,vexohacks is cool,42.45,44.0,1.55,8.675821304321289,1.324178695678711

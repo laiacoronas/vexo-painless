@@ -1,0 +1,27 @@
+{
+  "device": "mps",
+  "batch_size": 1,
+  "warmup_calls": 5,
+  "timed_calls": 100,
+  "input_shape": [
+    1,
+    1,
+    128,
+    300
+  ],
+  "scope": "warm synchronized compute; input resident on device; loading, decoding, preprocessing, and recording time separate",
+  "variants": {
+    "frozen": {
+      "encoder_median_ms": 5.663249999997788,
+      "encoder_p95_ms": 7.476681251137052,
+      "encoder_plus_head_median_ms": 6.125791500380728,
+      "encoder_plus_head_p95_ms": 7.883326750470587
+    },
+    "finetuned": {
+      "encoder_median_ms": 7.853583000724029,
+      "encoder_p95_ms": 9.96539614870926,
+      "encoder_plus_head_median_ms": 8.424853999713378,
+      "encoder_plus_head_p95_ms": 10.457218750525499
+    }
+  }
+}
