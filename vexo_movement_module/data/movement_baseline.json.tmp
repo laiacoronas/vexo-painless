@@ -1,0 +1,47 @@
+{
+  "still": [
+    {
+      "accel_std_g": 0.07425,
+      "gyro_rms_dps": 43.9725,
+      "steps_in_window": 0
+    },
+    {
+      "accel_std_g": 0.1935,
+      "gyro_rms_dps": 88.3795,
+      "steps_in_window": 0
+    },
+    {
+      "accel_std_g": 0.03035,
+      "gyro_rms_dps": 13.0057,
+      "steps_in_window": 0
+    },
+    {
+      "accel_std_g": 0.02912,
+      "gyro_rms_dps": 9.5401,
+      "steps_in_window": 0
+    }
+  ],
+  "walk": [
+    {
+      "accel_std_g": 0.29086,
+      "gyro_rms_dps": 259.6314,
+      "steps_in_window": 8
+    },
+    {
+      "accel_std_g": 0.30333,
+      "gyro_rms_dps": 237.6668,
+      "steps_in_window": 7
+    },
+    {
+      "accel_std_g": 0.64279,
+      "gyro_rms_dps": 812.9577,
+      "steps_in_window": 14
+    },
+    {
+      "accel_std_g": 0.3635,
+      "gyro_rms_dps": 358.2944,
+      "steps_in_window": 10
+    }
+  ],
+  "run": []
+}

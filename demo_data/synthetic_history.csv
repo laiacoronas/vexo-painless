@@ -1,0 +1,42 @@
+day_index,hour,minute,severity,context,after_long_sitting,had_lunch_walk,body_area
+0,7,5,moderate,Getting up / commute,0,1,Lower back
+0,10,10,moderate,Workday,0,1,Lower back
+1,7,25,moderate,Getting up / commute,0,0,Lower back
+1,8,15,moderate,Getting up / commute,0,0,Lower back
+1,12,30,moderate,Standing up,1,0,Hip
+1,14,10,high,After sitting >2h,1,0,Lower back
+1,14,45,moderate,Walking,0,0,Knee
+1,16,25,high,After sitting >2h,1,0,Lower back
+1,18,40,high,After sitting >2h,1,0,Lower back
+2,8,40,moderate,Getting up / commute,0,0,Lower back
+2,16,20,moderate,Workday,0,0,Lower back
+3,7,50,moderate,Getting up / commute,0,1,Lower back
+3,18,10,moderate,Standing up,1,1,Hip
+4,7,15,moderate,Getting up / commute,0,0,Lower back
+4,8,5,moderate,Getting up / commute,0,0,Lower back
+4,10,45,moderate,Workday,0,0,Lower back
+4,13,35,high,After sitting >2h,1,0,Lower back
+4,17,50,high,After sitting >2h,1,0,Lower back
+4,20,30,moderate,Walking,0,0,Knee
+5,8,25,moderate,Getting up / commute,0,0,Lower back
+5,12,20,moderate,Standing up,1,0,Hip
+6,7,40,moderate,Getting up / commute,0,1,Lower back
+7,8,50,moderate,Getting up / commute,0,0,Lower back
+7,14,10,moderate,Walking,0,0,Knee
+8,7,5,moderate,Getting up / commute,0,0,Lower back
+8,8,15,moderate,Getting up / commute,0,0,Lower back
+8,15,10,high,After sitting >2h,1,0,Lower back
+8,16,30,moderate,Workday,0,0,Lower back
+8,19,25,high,After sitting >2h,1,0,Lower back
+9,7,25,moderate,Getting up / commute,0,1,Lower back
+9,18,45,moderate,Standing up,1,1,Hip
+10,8,40,moderate,Getting up / commute,0,0,Lower back
+10,16,50,high,Other activity,0,0,Lower back
+10,20,20,moderate,Walking,0,0,Knee
+11,7,50,moderate,Getting up / commute,0,0,Lower back
+11,10,10,moderate,Workday,0,0,Lower back
+11,14,40,high,After sitting >2h,1,0,Lower back
+11,18,35,high,Other activity,0,0,Lower back
+12,8,5,moderate,Getting up / commute,0,1,Lower back
+12,12,30,moderate,Standing up,1,1,Hip
+13,14,45,moderate,Walking,0,0,Knee

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vexo · Connect Band</title>
+<style>
+*{box-sizing:border-box}body{background:#edf0f5;color:#1e293b;font-family:Inter,Segoe UI,Arial,sans-serif;margin:0;padding:36px 20px}main{max-width:520px;margin:35px auto}.brand{color:#35658b;font-size:26px;font-weight:800;letter-spacing:-1.5px}.card{background:white;border-radius:24px;box-shadow:0 9px 35px #243b5416;padding:28px 30px;margin-top:20px}.label{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#8392a2}h1{font-size:29px;letter-spacing:-1px;margin:7px 0 11px}.muted{color:#718096;font-size:14px;line-height:1.6}.status{border-radius:14px;background:#e6edf6;padding:13px 16px;font-weight:700;color:#35658b;margin:20px 0}button{border:0;background:#35658b;color:white;border-radius:12px;padding:15px 23px;font-size:15px;font-weight:700;cursor:pointer;width:100%}button:disabled{opacity:.45;cursor:default}button.secondary{background:#e9eef4;color:#35658b;margin-top:10px}a{color:#35658b;font-weight:650}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}.item{background:#f4f7fa;border-radius:12px;padding:14px}.value{font-size:22px;font-weight:770;margin:6px 0}.hint{margin:18px 0;font-size:13px;color:#708090}.dot{display:inline-block;width:10px;height:10px;border-radius:100%;background:#8796a9;margin-right:8px}.dot.ok{background:#3a956e}.dot.warn{background:#e9a046}.dot.bad{background:#a53318}#log{font-size:12px;color:#748293;white-space:pre-wrap;line-height:1.5;min-height:42px}</style>
+</head>
+<body><main><div class="brand">vexo</div><div class="card"><div class="label">Wearable connection</div><h1>Connect your Vexo band</h1><p class="muted">Direct Web Bluetooth connection through the official Vexo SDK. Live motion streams to your monitoring dashboard.</p><div class="status"><span class="dot" id="dot"></span><span id="status">Ready to connect</span></div><button id="connect">Connect Vexo 99</button><button class="secondary" id="disconnect" disabled>Disconnect</button><div class="grid"><div class="item"><div class="label">Motion samples</div><div class="value" id="samples">0</div></div><div class="item"><div class="label">Steps counter</div><div class="value" id="steps">—</div></div></div><div class="hint">Keep this tab open while presenting the <a href="http://localhost:8501/" target="_blank" rel="noopener">monitoring dashboard</a>. Only one Bluetooth client should be connected at a time. Double-tap the band before connecting.</div><div id="log"></div></div><p class="muted">Movement changes are compared with your own baseline. The movement index is not a medical pain measurement.</p></main>
+<script type="module">
+import { Band } from '/vexo-open-kit/js/src/index.js';
+let band = null, motion = [], activity = [], sending = false, total = 0, lastFlush = 0;
+const $ = id=>document.getElementById(id);
+const note = msg=>{ $('log').textContent = msg; };
+function setState(msg,kind=''){ $('status').textContent=msg; $('dot').className=`dot ${kind}`; }
+async function post(path, data){ const res=await fetch(path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data),cache:'no-store'});if(!res.ok)throw Error('Local monitoring bridge unavailable'); return res.json(); }
+async function report(status){ try{ await post('/api/status',{status}); } catch(err){ note(err.message); } }
+function timeMs(x){const v=x?.time; if(v instanceof Date) return v.getTime(); if(typeof v==='number') return v>1e11?v:v*1000; return Date.now();}
+async function flush(){ if(sending || (!motion.length && !activity.length))return; sending=true;const mm=motion.splice(0,180), aa=activity.splice(0,25);
+ try{await post('/api/push',{motion:mm,activity:aa}); lastFlush=Date.now();}
+ catch(err){motion=mm.concat(motion).slice(-240);activity=aa.concat(activity).slice(-30);note('Bridge unavailable — check that server.py is running. '+err.message);}finally{sending=false;}
+}
+$('connect').onclick = async()=>{if(band)return; $('connect').disabled=true;setState('Opening Bluetooth chooser…','warn');
+ try{
+  band = await Band.connect(99,{autoReconnect:true});
+  band.on('motion',m=>{ motion.push({time_ms:timeMs(m),ax:m.ax,ay:m.ay,az:m.az,gx:m.gx,gy:m.gy,gz:m.gz});total++;$('samples').textContent=total.toLocaleString();if(motion.length>=32)void flush();});
+  band.on('activity',a=>{activity.push({time_ms:timeMs(a),steps:a.steps,cadence:a.cadence,state:a.state});$('steps').textContent=String(a.steps??'—');});
+  band.on('notice',e=>{if(e.kind==='stream-dropped')note('Brief packet loss detected. Live monitoring continues.');else note(`Vexo notice: ${e.kind}`);});
+  band.on('reconnecting',()=>{motion=[];activity=[];setState('Reconnecting automatically…','warn');void report('reconnecting');});
+  band.on('reconnected',()=>{motion=[];activity=[];setState('Connected · Live data','ok');void report('connected');note('Sensor streaming resumed.');});
+  band.on('disconnect',e=>{motion=[];activity=[];band=null;setState('Disconnected','bad');$('connect').disabled=false;$('disconnect').disabled=true;void report('disconnected');note(`Connection ended: ${e.reason??'unknown'}`);});
+  const bridge=await fetch('/api/health',{cache:'no-store'}).then(r=>r.json());
+  await band.configure({motion:bridge.rate||25,sensors:'both',activity:true});
+  setState('Connected · Live data','ok');$('disconnect').disabled=false;await report('connected');note('Using the official Vexo Web Bluetooth SDK.');
+ }catch(err){setState('Unable to connect','bad');note(err?.message||String(err));$('connect').disabled=false;band=null;await report('disconnected');}
+};
+$('disconnect').onclick=async()=>{if(!band)return;const b=band;band=null;try{await b.disconnect();}catch(e){note(String(e));}motion=[];activity=[];$('connect').disabled=false;$('disconnect').disabled=true;setState('Disconnected','bad');await report('disconnected');};
+setInterval(()=>{void flush();},600);
+setInterval(()=>{if(band && !band.reconnecting)void report('connected');},3000);
+window.addEventListener('pagehide',()=>{if(band)navigator.sendBeacon('/api/status',new Blob([JSON.stringify({status:'disconnected'})],{type:'application/json'}));});
+</script>
+</body></html>

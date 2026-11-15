@@ -1,0 +1,11 @@
+{
+  "timestamp": "REPLACE_WITH_CURRENT_UTC_ISO8601_TIMESTAMP",
+  "source": "voice-model",
+  "voice_status": "ready",
+  "voice_level": "moderate",
+  "voice_deviation_index": 47.0,
+  "features": {
+    "pitch_hz": 193.2,
+    "loudness_relative": 1.12
+  }
+}

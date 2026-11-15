@@ -1,0 +1,16 @@
+{
+  "session_id": "20261114T194150_843786Z",
+  "band_number": 79,
+  "device": "Vexo-HACK-79",
+  "captured_at_utc": "2026-11-14T19:42:14.635041+00:00",
+  "source": "ble",
+  "audio_file": "audio.ogg",
+  "duration_seconds": 14.9,
+  "language": null,
+  "transcription": "",
+  "transcript_segments": [],
+  "packet_loss": 0,
+  "pain_score_self_report_0_to_10": null,
+  "note": "Received_seconds is a receive-time estimate, not exact word alignment.",
+  "warning": null
+}
