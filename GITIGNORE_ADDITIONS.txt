@@ -1,0 +1,7 @@
+# Suggested additions to your existing .gitignore:
+.env
+vexo-open-kit/
+**/__pycache__/
+vexo_movement_module/data/
+data/vexo_demo_checkins.csv
+data/vexo_demo_moments.csv
