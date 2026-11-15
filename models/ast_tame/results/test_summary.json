@@ -1,0 +1,100 @@
+{
+  "general": {
+    "participant_macro_mae": 2.1505807510466823,
+    "per_band": {
+      "low": {
+        "count": 208,
+        "mae": 1.9739718018816068
+      },
+      "moderate": {
+        "count": 56,
+        "mae": 2.048720616315092
+      },
+      "high": {
+        "count": 39,
+        "mae": 2.7509660659692226
+      }
+    },
+    "outside_scale_count": 21
+  },
+  "personal": {
+    "participant_macro_mae": 0.7055985275922017,
+    "per_band": {
+      "low": {
+        "count": 208,
+        "mae": 0.6134496679207166
+      },
+      "moderate": {
+        "count": 56,
+        "mae": 0.9254342062132699
+      },
+      "high": {
+        "count": 39,
+        "mae": 0.8885864111093374
+      }
+    },
+    "outside_scale_count": 52
+  },
+  "reference_mean": {
+    "participant_macro_mae": 0.5359369576624523,
+    "per_band": {
+      "low": {
+        "count": 208,
+        "mae": 0.2708333312318875
+      },
+      "moderate": {
+        "count": 56,
+        "mae": 1.0714284905365534
+      },
+      "high": {
+        "count": 39,
+        "mae": 1.3760683475396571
+      }
+    },
+    "outside_scale_count": 0
+  },
+  "last_reference": {
+    "participant_macro_mae": 0.45290908987330236,
+    "per_band": {
+      "low": {
+        "count": 208,
+        "mae": 0.3076923076923077
+      },
+      "moderate": {
+        "count": 56,
+        "mae": 1.0178571428571428
+      },
+      "high": {
+        "count": 39,
+        "mae": 0.6666666666666666
+      }
+    },
+    "outside_scale_count": 0
+  },
+  "training_mean": {
+    "participant_macro_mae": 2.0948361309838264,
+    "per_band": {
+      "low": {
+        "count": 208,
+        "mae": 1.7680311597568803
+      },
+      "moderate": {
+        "count": 56,
+        "mae": 1.8356776314519112
+      },
+      "high": {
+        "count": 39,
+        "mae": 4.204725250499529
+      }
+    },
+    "outside_scale_count": 0
+  },
+  "personalization_improvement": {
+    "mean_mae_reduction": 1.4449822234544807,
+    "participant_bootstrap_95_ci": [
+      1.0191985393441496,
+      1.8597789584612001
+    ],
+    "test_participants": 8
+  }
+}

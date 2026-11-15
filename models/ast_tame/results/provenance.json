@@ -1,0 +1,29 @@
+{
+  "encoder_model": "MIT/ast-finetuned-audioset-10-10-0.4593",
+  "encoder_revision": "f826b80d28226b62986cc218e5cec390b1096902",
+  "original_training_code_sha256": "bb8909fad1ad8c6adc5cba1d2f3d8efcc60911144b78d2a61e5efa016e281c3f",
+  "export_training_code_sha256": "c0d4b0b8399808a7615638bc87ad5e56380910d01f25eea3e85e98b465c9c3d8",
+  "export_change": "Embedding extraction loads the bundled pinned encoder locally. Head architecture, fitting and evaluation are unchanged.",
+  "checkpoints": {
+    "general": {
+      "best_epoch": 31,
+      "validation_mae": 1.856936620605477,
+      "width": 768,
+      "personal": false,
+      "manifest_sha256": "64a21d5534870b9d03bae102f7d707fdda1ed48c1d51cfa7b210f68a3d13e125",
+      "seed": 42,
+      "encoder_model": "MIT/ast-finetuned-audioset-10-10-0.4593",
+      "encoder_revision": "f826b80d28226b62986cc218e5cec390b1096902"
+    },
+    "personal": {
+      "best_epoch": 2,
+      "validation_mae": 0.6307536953337312,
+      "width": 768,
+      "personal": true,
+      "manifest_sha256": "64a21d5534870b9d03bae102f7d707fdda1ed48c1d51cfa7b210f68a3d13e125",
+      "seed": 42,
+      "encoder_model": "MIT/ast-finetuned-audioset-10-10-0.4593",
+      "encoder_revision": "f826b80d28226b62986cc218e5cec390b1096902"
+    }
+  }
+}

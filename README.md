@@ -17,6 +17,10 @@
 
 ---
 
+## AST trained on TAME
+
+[Base model, regression heads, training protocol, and results](models/ast_tame/README.md).
+
 ## The problem
 
 Pain is personal, dynamic, and difficult to communicate. Most pain assessments depend on a person stopping what they are doing and answering a question such as *“How much does it hurt, from 0 to 10?”*

@@ -1,0 +1,44 @@
+{
+  "seed": 42,
+  "reference_count": 3,
+  "reference_policy": "first usable sentence in each of first three usable rating blocks within each PID/COND session",
+  "metadata_sha256": "216af21db4d17279c00e20055cc52333af1bb0dc4136d9015bb64abc9ec0713e",
+  "audit": {
+    "raw_rows": 7044,
+    "score_counts": {
+      "3.0": 495,
+      "4.0": 656,
+      "5.0": 516,
+      "1.0": 3300,
+      "6.0": 531,
+      "2.0": 407,
+      "7.0": 510,
+      "8.0": 333,
+      "9.0": 186,
+      "10.0": 105
+    },
+    "exclusions": {
+      "spoken_rating": 1294,
+      "audio_quality": 1943,
+      "copied_rating": 266,
+      "session_insufficient_blocks": 30,
+      "missing_or_invalid_score": 5,
+      "no_following_report": 11
+    },
+    "splits": {
+      "train": {
+        "participants": 35,
+        "queries": 1188
+      },
+      "validation": {
+        "participants": 8,
+        "queries": 356
+      },
+      "test": {
+        "participants": 8,
+        "queries": 303
+      }
+    }
+  },
+  "manifest_sha256": "64a21d5534870b9d03bae102f7d707fdda1ed48c1d51cfa7b210f68a3d13e125"
+}

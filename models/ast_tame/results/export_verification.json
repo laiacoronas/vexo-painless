@@ -1,0 +1,13 @@
+{
+  "date": "2026-11-14",
+  "unit_tests_passed": 6,
+  "regenerated_manifest_hash_matches_original": true,
+  "saved_predictions_verified_per_head": 303,
+  "saved_prediction_absolute_tolerance": 1e-06,
+  "audio_inference_verified_heads": [
+    "general",
+    "personal"
+  ],
+  "audio_inference_absolute_tolerance": 0.0001,
+  "verification_data": "One original held-out query with its three references; all original held-out embeddings for head parity."
+}

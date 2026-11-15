@@ -1,6 +1,8 @@
-# Model development plan
+# Models
 
-This repository currently extracts **descriptive audio features**, not a trained pain predictor.
+[AST trained on TAME](ast_tame/README.md): frozen base model, general and reference-conditioned heads, training protocol, and results.
+
+## Further model development
 
 1. Pre-register a protocol and consent flow. Record controlled speech tasks under varied conditions.
 2. Collect participant ID (pseudonym), voice sessions, timestamp, self-reported pain (0–10), context (activity, noise, microphone placement), and other relevant covariates.
