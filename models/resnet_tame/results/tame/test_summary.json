@@ -1,0 +1,140 @@
+{
+  "config_sha256": "e11f7bd31ecd6c5c1ca66b403d762b0746a6f5f9c8a9db734b29050fbc539839",
+  "manifest_sha256": "64a21d5534870b9d03bae102f7d707fdda1ed48c1d51cfa7b210f68a3d13e125",
+  "selection": {
+    "selected_variant": "finetuned",
+    "variants": {
+      "frozen": {
+        "best_epoch": 9,
+        "validation_mae": 2.12630153005795,
+        "trainable_parameters": 73985
+      },
+      "finetuned": {
+        "best_epoch": 3,
+        "validation_mae": 2.021828854826821,
+        "trainable_parameters": 13188353
+      }
+    }
+  },
+  "checkpoint_sha256": {
+    "frozen": "6374c687c2b692dfb4d775f5b157e04144d4ab0b4c023ed1364b32c7c35fb7e4",
+    "finetuned": "773d050f3c31a042dbdbc0d609ed3166920f9bb94db2db627c9e16134ad673b9"
+  },
+  "results": {
+    "frozen": {
+      "participant_macro_mae": 2.184914008242673,
+      "per_band": {
+        "low": {
+          "count": 208,
+          "mae": 1.9926897121879916
+        },
+        "moderate": {
+          "count": 56,
+          "mae": 2.107899904783283
+        },
+        "high": {
+          "count": 39,
+          "mae": 3.565589051980239
+        }
+      },
+      "outside_scale_count": 22
+    },
+    "finetuned": {
+      "participant_macro_mae": 2.0757477666766353,
+      "per_band": {
+        "low": {
+          "count": 208,
+          "mae": 1.8053555838190591
+        },
+        "moderate": {
+          "count": 56,
+          "mae": 1.957455724477768
+        },
+        "high": {
+          "count": 39,
+          "mae": 4.138407878386668
+        }
+      },
+      "outside_scale_count": 5
+    },
+    "training_mean": {
+      "participant_macro_mae": 2.094836091829807,
+      "per_band": {
+        "low": {
+          "count": 208,
+          "mae": 1.7680310652806208
+        },
+        "moderate": {
+          "count": 56,
+          "mae": 1.8356777259281702
+        },
+        "high": {
+          "count": 39,
+          "mae": 4.204725344975789
+        }
+      },
+      "outside_scale_count": 0
+    },
+    "training_median": {
+      "participant_macro_mae": 1.647170950688178,
+      "per_band": {
+        "low": {
+          "count": 208,
+          "mae": 0.3605769230769231
+        },
+        "moderate": {
+          "count": 56,
+          "mae": 3.9642857142857144
+        },
+        "high": {
+          "count": 39,
+          "mae": 6.333333333333333
+        }
+      },
+      "outside_scale_count": 0
+    },
+    "reference_mean": {
+      "participant_macro_mae": 0.535936977789931,
+      "per_band": {
+        "low": {
+          "count": 208,
+          "mae": 0.27083333333333337
+        },
+        "moderate": {
+          "count": 56,
+          "mae": 1.0714285714285716
+        },
+        "high": {
+          "count": 39,
+          "mae": 1.3760683760683756
+        }
+      },
+      "outside_scale_count": 0
+    },
+    "last_reference": {
+      "participant_macro_mae": 0.45290908987330236,
+      "per_band": {
+        "low": {
+          "count": 208,
+          "mae": 0.3076923076923077
+        },
+        "moderate": {
+          "count": 56,
+          "mae": 1.0178571428571428
+        },
+        "high": {
+          "count": 39,
+          "mae": 0.6666666666666666
+        }
+      },
+      "outside_scale_count": 0
+    }
+  },
+  "finetuning_mae_reduction": 0.10916624156603746,
+  "participant_bootstrap_95_ci": [
+    -0.1702437033504891,
+    0.4323230282380973
+  ],
+  "test_participants": 8,
+  "test_queries": 303
+}

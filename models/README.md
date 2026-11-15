@@ -2,6 +2,8 @@
 
 [AST trained on TAME](ast_tame/README.md): frozen base model, general and reference-conditioned heads, training protocol, and results.
 
+[ResNet trained on TAME](resnet_tame/README.md): shared ResNet-34, Milan and Lamita personal reference heads, matched comparison heads, per-epoch curves, training protocol, and results.
+
 ## Further model development
 
 1. Pre-register a protocol and consent flow. Record controlled speech tasks under varied conditions.

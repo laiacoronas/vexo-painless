@@ -1,0 +1,93 @@
+[
+  {
+    "variant": "finetuned",
+    "epoch": 1,
+    "train_huber": 1.816232766366567,
+    "validation_mae": 2.1099387650080006,
+    "elapsed_seconds": 3.851599707999412
+  },
+  {
+    "variant": "finetuned",
+    "epoch": 2,
+    "train_huber": 1.5651637664949052,
+    "validation_mae": 2.0573567777338284,
+    "elapsed_seconds": 5.944566790998579
+  },
+  {
+    "variant": "finetuned",
+    "epoch": 3,
+    "train_huber": 1.4487629051160331,
+    "validation_mae": 2.021828854826821,
+    "elapsed_seconds": 8.235147124998548
+  },
+  {
+    "variant": "finetuned",
+    "epoch": 4,
+    "train_huber": 1.2542963672667642,
+    "validation_mae": 2.084757863192227,
+    "elapsed_seconds": 10.460058457998457
+  },
+  {
+    "variant": "finetuned",
+    "epoch": 5,
+    "train_huber": 1.141604026560029,
+    "validation_mae": 2.139433536959851,
+    "elapsed_seconds": 12.532036415999755
+  },
+  {
+    "variant": "finetuned",
+    "epoch": 6,
+    "train_huber": 1.0059478569913793,
+    "validation_mae": 2.065999940741822,
+    "elapsed_seconds": 14.418793540999104
+  },
+  {
+    "variant": "finetuned",
+    "epoch": 7,
+    "train_huber": 0.9436629645350806,
+    "validation_mae": 2.073209165028681,
+    "elapsed_seconds": 16.47597716599921
+  },
+  {
+    "variant": "finetuned",
+    "epoch": 8,
+    "train_huber": 0.7880274767827506,
+    "validation_mae": 2.112527873866495,
+    "elapsed_seconds": 18.836116249998668
+  },
+  {
+    "variant": "finetuned",
+    "epoch": 9,
+    "train_huber": 0.7006313086358786,
+    "validation_mae": 2.0597814694652987,
+    "elapsed_seconds": 21.169971790999625
+  },
+  {
+    "variant": "finetuned",
+    "epoch": 10,
+    "train_huber": 0.6564532505843775,
+    "validation_mae": 2.07287511565625,
+    "elapsed_seconds": 23.614761374999944
+  },
+  {
+    "variant": "finetuned",
+    "epoch": 11,
+    "train_huber": 0.5631870167825358,
+    "validation_mae": 2.7212363524575283,
+    "elapsed_seconds": 25.56729599999926
+  },
+  {
+    "variant": "finetuned",
+    "epoch": 12,
+    "train_huber": 0.8125981162694167,
+    "validation_mae": 2.689495220352803,
+    "elapsed_seconds": 27.418574124998486
+  },
+  {
+    "variant": "finetuned",
+    "epoch": 13,
+    "train_huber": 0.6183692389214882,
+    "validation_mae": 2.0717124726534917,
+    "elapsed_seconds": 29.465300832998764
+  }
+]

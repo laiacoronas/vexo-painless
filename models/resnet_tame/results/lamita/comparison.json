@@ -1,0 +1,25 @@
+{
+  "matched_audio": {
+    "calibration_count": 9,
+    "evaluation_count": 6,
+    "selected": {
+      "weight_decay": 1.0,
+      "epoch": 400,
+      "mae": 2.346543312072754
+    },
+    "evaluation_mae": 1.0106927156448364,
+    "evaluation_rmse": 1.168745994567871
+  },
+  "pain0_reference": {
+    "calibration_count": 9,
+    "evaluation_count": 6,
+    "selected": {
+      "weight_decay": 1.0,
+      "epoch": 4,
+      "mae": 2.284326910972595
+    },
+    "evaluation_mae": 0.9459161162376404,
+    "evaluation_rmse": 1.068820595741272
+  },
+  "matched_reference_mae_reduction": 0.06477659940719604
+}

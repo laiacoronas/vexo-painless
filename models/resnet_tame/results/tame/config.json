@@ -1,0 +1,41 @@
+{
+  "initialization": "torchvision.ResNet34_Weights.IMAGENET1K_V1",
+  "encoder": "resnet34_single_channel_global_average_pool_512",
+  "variants": [
+    "frozen",
+    "finetuned"
+  ],
+  "head": [
+    512,
+    128,
+    64,
+    1
+  ],
+  "dropout": 0.2,
+  "seed": 42,
+  "max_epochs": 100,
+  "patience": 10,
+  "batch_size": 32,
+  "head_lr": 0.001,
+  "encoder_lr": 1e-05,
+  "weight_decay": 0.001,
+  "loss": "participant_weighted_huber",
+  "huber_delta": 1.0,
+  "selection": "participant_macro_validation_mae",
+  "batch_norm": "fixed_running_statistics; layer4 affine trainable in finetuned",
+  "sample_rate": 16000,
+  "n_fft": 400,
+  "hop_length": 160,
+  "n_mels": 128,
+  "fmin": 50,
+  "fmax": 8000,
+  "frames": 300,
+  "preprocessing": "mono; polyphase resample; peak normalization; log mel; per-clip minmax; right zero-pad or keep first 300 frames",
+  "denoising": false,
+  "augmentation": false,
+  "outputs": "unconstrained pain score; out-of-range counts reported",
+  "reference_use": "reference scores used only for evaluation controls",
+  "architecture_source": "https://github.com/oussama123-ai/AVPENet/blob/main/avpenet/models/audio_encoder.py",
+  "manifest_sha256": "64a21d5534870b9d03bae102f7d707fdda1ed48c1d51cfa7b210f68a3d13e125",
+  "code_sha256": "77a0b84ec501d3293215cba6cbe4e0efafc724a3fe4f72f8dfc23fb342924bb1"
+}

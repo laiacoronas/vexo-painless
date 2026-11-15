@@ -1,0 +1,11 @@
+file,pain_level,take,block,phrase,source_start_seconds,source_end_seconds,duration_seconds,rating_start_seconds,rating_end_seconds,prediction,absolute_error
+recordings/milan_pain_02_take_03.wav,2,3,2,vexohacks is cool,16.4,18.15,1.75,18.7,20.75,4.802727222442627,2.802727222442627
+recordings/milan_pain_05_take_03.wav,5,3,3,vexohacks is cool,26.82,28.5,1.68,29.0,30.9,4.8736066818237305,0.12639331817626953
+recordings/milan_pain_06_take_03.wav,6,3,4,vexohacks is cool,39.2,40.9,1.7,41.5,43.5,5.528743267059326,0.47125673294067383
+recordings/milan_pain_07_take_03.wav,7,3,5,vexohacks is cool,51.05,52.8,1.75,53.25,55.1,5.432467937469482,1.5675320625305176
+recordings/milan_pain_08_take_03.wav,8,3,6,vexohacks is cool,61.6,63.42,1.82,63.9,66.05,7.300980567932129,0.6990194320678711
+recordings/milan_pain_08_take_04.wav,8,4,7,vexohacks is cool,67.32,69.03,1.71,73.4,75.35,7.809118747711182,0.19088125228881836
+recordings/milan_pain_08_take_05.wav,8,5,7,vexohacks is cool,69.2,70.85,1.65,73.4,75.35,7.437961578369141,0.5620384216308594
+recordings/milan_pain_08_take_06.wav,8,6,7,vexohacks is cool,71.2,72.95,1.75,73.4,75.35,5.884490966796875,2.115509033203125
+recordings/milan_pain_09_take_03.wav,9,3,8,vexohacks is cool,81.3,82.75,1.45,83.2,85.15,6.271399974822998,2.728600025177002
+recordings/milan_pain_10_take_03.wav,10,3,9,vexohacks is cool,89.5,91.2,1.7,91.5,93.7,8.307808876037598,1.6921911239624023

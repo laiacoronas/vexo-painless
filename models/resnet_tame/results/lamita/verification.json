@@ -1,0 +1,27 @@
+{
+  "matched_audio": {
+    "calibration_count": 9,
+    "evaluation_count": 6,
+    "independent_prediction_replay_verified": true,
+    "calibration_only_scalers_verified": true,
+    "fold_validation_excluded_from_reference_pool": true,
+    "selected_epoch_reproduced": true,
+    "all_400_epochs_recorded": true,
+    "mae_verified": true
+  },
+  "pain0_reference": {
+    "calibration_count": 9,
+    "evaluation_count": 6,
+    "independent_prediction_replay_verified": true,
+    "calibration_only_scalers_verified": true,
+    "fold_validation_excluded_from_reference_pool": true,
+    "selected_epoch_reproduced": true,
+    "all_400_epochs_recorded": true,
+    "mae_verified": true
+  },
+  "identical_matched_split": true,
+  "reference_protocol_matches_Milan": true,
+  "self_pairs_excluded": true,
+  "reference_order_invariant": true,
+  "evaluation_labels_do_not_affect_predictions": true
+}
