@@ -1,0 +1,6 @@
+.env
+.env.*
+__pycache__/
+*.pyc
+vexo_voice_module/data/
+data/voice_latest.json

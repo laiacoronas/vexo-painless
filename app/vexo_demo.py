@@ -7,6 +7,8 @@ from __future__ import annotations
 
 import html
 import io
+import os
+import streamlit.components.v1 as components
 import math
 from collections import Counter
 from datetime import datetime, timedelta, timezone
@@ -46,6 +48,8 @@ st.markdown("""
 .v-pill{display:inline-block;padding:6px 12px;border-radius:30px;background:#dce8f6;color:#285475;font-size:12px;font-weight:800;white-space:nowrap;}
 .v-pill.orange{background:#fbe5c9;color:#97530f;}.v-pill.red{background:#f5d1c6;color:#922d17;}
 .v-pill.grey{background:#e9edf2;color:#6e7785;}
+.st-key-voice_movement{background:#fff;border-radius:22px;}
+.st-key-voice_movement .v-card{border:0;box-shadow:none;margin:0;padding:0;}
 .v-card{background:#fff;border:1px solid #e3e7ec;border-radius:22px;padding:21px 22px;margin:12px 0;box-shadow:0 5px 18px rgba(27,46,70,.035);}
 .v-row{display:flex;justify-content:space-between;align-items:center;gap:12px;}
 .v-card-title{font-size:18px;font-weight:760;color:#1e2733;}
@@ -91,7 +95,7 @@ def e(value):
 
 
 def card(text):
-    st.markdown(f'<div class="v-card">{text}</div>', unsafe_allow_html=True)
+    st.markdown('<div class="v-card">' + ''.join(line.strip() for line in text.splitlines()) + '</div>', unsafe_allow_html=True)
 
 
 def pill(label, tone="blue"):
@@ -178,23 +182,7 @@ def movement_card(payload, state, source):
 
 
 def voice_card():
-    voice_path = choose_file(VOICE_CANDIDATES, "VEXO_VOICE_JSON")
-    voice, status = live_voice(voice_path)
-    if status != "ready":
-        card(f'''
-        <div class="v-row"><div class="v-card-title">Voice</div>{pill('Model pending','grey')}</div>
-        <div style="margin-top:12px" class="v-muted">Reserved for your teammate's audio model. No voice prediction is shown until a fresh <code>voice_latest.json</code> is available.</div>
-        <div style="height:14px;border-radius:10px;background:#eef0f4;margin:20px 0 4px"></div>
-        <div class="v-tiny">Acoustic baseline · pitch, loudness, voice changes</div>
-        ''')
-        return
-    label = voice["level"].capitalize()
-    tone = {"normal":"blue", "moderate":"orange", "high":"red"}[voice["level"]]
-    card(f'''
-        <div class="v-row"><div class="v-card-title">Voice</div>{pill(label,tone)}</div>
-        <div class="v-muted" style="margin-top:10px">Connected to teammate's model output. Signal level is not a medical measurement of pain.</div>
-        {meter(voice['index'],label,kind='voice') if voice['index'] is not None else ''}
-    ''')
+    components.iframe(os.environ.get("VEXO_VOICE_URL", "http://localhost:8768"), height=410, scrolling=False)
 
 
 def plot_raw_imu(source):
@@ -287,16 +275,24 @@ def latest_panel():
     pill_text = "PREVIEW" if source == "preview" else ("LIVE · VEXO 79" if state == "connected" else "NOT CONNECTED")
     pill_tone = "orange" if source=="preview" else ("blue" if state=="connected" else "grey")
     st.markdown(f'<div class="v-top"><div class="v-brand">vexo</div>{pill(pill_text,pill_tone)}</div>',unsafe_allow_html=True)
-    title("Right now","Continuous movement monitoring. Motion changes are not a pain measurement; voice will be integrated separately.")
+    title("Right now","Continuous movement monitoring. Motion changes are not a pain measurement; Gemini Live is available in the Voice panel.")
     if source=="preview":
         card(f'<div class="v-row">{pill(label,tone)}<span class="v-muted">Illustrative stream — no physical sensor required.</span></div>')
     elif state=="connected":
         card(f'<div class="v-row">{pill(label,tone)}<span class="v-muted">Fresh Vexo data · {age:.0f}s ago</span></div>')
     else:
         card(f'<div class="v-row">{pill(label,tone)}<span class="v-muted">Connect Vexo 79 through localhost:8765/ble_bridge/index.html.</span></div>')
+    # The shared Voice/Movement panel is rendered outside this refresh block.
+
+
+def latest_movement():
+    payload,state,age,source = current_snapshot()
     movement_card(payload,state,source)
     plot_raw_imu(source)
-    voice_card()
+
+
+def latest_details():
+    payload,state,age,source = current_snapshot()
     st.markdown("<div class='v-card-title' style='margin:20px 0 1px'>Movement · last windows</div>",unsafe_allow_html=True)
     plot_live_trend(payload,state,source)
     if state == "connected" and payload and payload.get("movement_status") in ("change","strong_change"):
@@ -514,7 +510,7 @@ with st.sidebar:
         st.caption("Connect in Chrome or Edge. Close the original Vexo dashboard first; one Bluetooth connection at a time.")
         st.caption("Live sensor trace refreshes about once per second; baseline assessment updates every five seconds.")
     st.divider()
-    st.caption("Voice insights will appear when the audio model is connected.")
+    st.caption("Gemini Live · voice conversation")
     st.caption("All check-ins and flags are stored locally in vexo-pain-monitor/data/.")
 
 navigation=["Now","Timeline","Patterns","Experiment","Moment","Share"]
@@ -526,12 +522,25 @@ st.markdown('<div style="height:5px"></div>',unsafe_allow_html=True)
 def now_refresh():
     latest_panel()
 
+@st.fragment(run_every="1s")
+def movement_refresh():
+    latest_movement()
+
+@st.fragment(run_every="1s")
+def details_refresh():
+    latest_details()
+
 @st.fragment(run_every="3s")
 def moment_refresh():
     moment_panel()
 
 if page=="Now":
     now_refresh()
+    with st.container(border=True, key="voice_movement"):
+        voice_card()
+        st.divider()
+        movement_refresh()
+    details_refresh()
     _payload,_state,_,_ = current_snapshot()
     checkin_panel(_payload,_state)
 elif page=="Moment":
